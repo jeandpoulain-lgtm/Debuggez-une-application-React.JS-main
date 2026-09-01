@@ -48,5 +48,9 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.5.0",
     "prettier": "^2.6.2"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/jeandpoulain-lgtm/Debuggez-une-application-React.JS-main.git",
+  "author": "Jean-Daniel Poulain <jeandpoulain@gmail.com>",
+  "license": "MIT"
 }
