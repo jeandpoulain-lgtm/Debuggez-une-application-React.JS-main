@@ -11,15 +11,9 @@ describe("When Menu is created", () => {
   });
 
   describe("and a click is triggered on contact button", () => {
-    it("document location  href change", async () => {
+    it("document location href change", async () => {
       render(<Menu />);
-      fireEvent(
-        await screen.findByText("Contact"),
-        new MouseEvent("click", {
-          cancelable: true,
-          bubbles: true,
-        })
-      );
+      fireEvent.click(await screen.findByText("Contact"));
       expect(window.document.location.hash).toEqual("#contact");
     });
   });

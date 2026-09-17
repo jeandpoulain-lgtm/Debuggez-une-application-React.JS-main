@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+html {
+  overflow-y: scroll; 
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.ListContainer {
+  min-height: 600px;
+}
