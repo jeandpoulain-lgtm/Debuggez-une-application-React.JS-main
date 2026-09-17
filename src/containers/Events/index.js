@@ -44,10 +44,11 @@ const sortedEvents = [...uniqueEvents].sort(
 
   return (
     <>
-      {error && <div>An error occured</div>}
-      {data === null ? (
-        "loading"
-      ) : (
+        {error ? (
+          <div>An error occured</div>
+        ) : data === null ? (
+          "loading"
+        ) : (
         <>
           <h3 className="SelectTitle">Catégories</h3>
           <Select
