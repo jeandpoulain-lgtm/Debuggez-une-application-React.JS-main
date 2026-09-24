@@ -13,7 +13,17 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const {last} = useData()
+
+  // const {last} = useData() remplacer par tri des evenement
+  const { data } = useData();
+  const last = data?.events
+    ? [...data.events].sort((evtA, evtB) =>
+        new Date(evtA.date) < new Date(evtB.date) ? 1 : -1
+      )[0]
+    : null;
+
+    // corection id manquant pour ancre check
+
   return <>
     <header>
       <Menu />
@@ -113,17 +123,17 @@ const Page = () => {
         </Modal>
       </div>
     </main>
-    <footer className="row" >
+    <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        {last && last.cover && (
+        {last &&( // ajout d'une condition pour erreur
           <EventCard
             imageSrc={last?.cover}
             title={last?.title}
             date={new Date(last?.date)}
             small
-            label="Notre dernière prestation"
-          />
+            label={last?.type} // erreur label="boom" par le type
+        />
         )}
       </div>
       <div className="col contact">

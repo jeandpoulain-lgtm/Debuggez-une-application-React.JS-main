@@ -48,7 +48,7 @@ describe("When Events is created", () => {
     await screen.findByText("Conférence #productCON");
   });
   describe("and an error occured", () => {
-    it("an error message is displayed", async () => {
+    it("a error message is displayed", async () => {
       api.loadData = jest.fn().mockRejectedValue(new Error("Error"));
       render(
         <DataProvider>
@@ -59,7 +59,7 @@ describe("When Events is created", () => {
     });
   });
   describe("and we select a category", () => {
-    it("an filtered list is displayed", async () => {
+    it("a filtered list is displayed", async () => {
       api.loadData = jest.fn().mockReturnValue(data);
       render(
         <DataProvider>

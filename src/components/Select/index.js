@@ -16,9 +16,12 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange(newValue);
+    // onChange(); // pas de valeur ?
     setValue(newValue);
-    setCollapsed(true);
+    setCollapsed(true); // valeur booleen atendu donne recu categorie
+    if(onChange) {
+      onChange(newValue); // categorie transmit
+    }
   };
   return (
     <div className={`SelectContainer ${type}`} data-testid="select-testid">
