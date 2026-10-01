@@ -16,11 +16,10 @@ const Select = ({
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    // onChange(); // pas de valeur ?
     setValue(newValue);
-    setCollapsed(true); // valeur booleen atendu donne recu categorie
+    setCollapsed(true);  
     if(onChange) {
-      onChange(newValue); // categorie transmit
+      onChange(newValue); 
     }
   };
   return (

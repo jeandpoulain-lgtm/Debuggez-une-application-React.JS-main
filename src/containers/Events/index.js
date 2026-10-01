@@ -10,23 +10,20 @@ import "./style.css";
 // CONSTANTE
 const PER_PAGE = 9;
 
-// hook
 const EventList = () => {
   const { data, error } = useData();
-  const [type, setType] = useState(null); // par default check
+  const [type, setType] = useState(null); 
   const [currentPage, setCurrentPage] = useState(1);
 
-  // possible erreur undefined, ont filtre d abord
-  const filteredEvents = (data?.events || [] ) // si data.event vrai sinon tableau vide ensuite filtre du tableau check
-    .sort((evtA, evtB) => new Date(evtB.date) - new Date(evtA.date)) // Ajout du tri du plus récent au plus ancien (doublon vue par ce changement) check
+  const filteredEvents = (data?.events || [] ) 
+    .sort((evtA, evtB) => new Date(evtB.date) - new Date(evtA.date)) 
     .filter((event) => {
-    if (!type) { // si pas de (not)type est vrai check
+    if (!type) { 
       return true;
     }
     return event.type === type;
   });
 
-  // ont decoupe par page
   const paginatedEvents = filteredEvents.filter((_, index) => {
   const startIndex = (currentPage - 1) * PER_PAGE;
   const endIndex = currentPage * PER_PAGE;
@@ -38,7 +35,7 @@ const EventList = () => {
     setType(evtType);
   };
 
-  const pageNumber = Math.ceil((filteredEvents?.length || 0) / PER_PAGE); // corection math.floor par math.ceil check 
+  const pageNumber = Math.ceil((filteredEvents?.length || 0) / PER_PAGE);
   const typeList = new Set(data?.events?.map((event) => event.type));
 
   return (
